@@ -142,7 +142,9 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {featuredArticles.slice(0, 4).map((article) => (
-            <ArticleCard key={article.id} {...article} />
+            <a key={article.id} href={`/article/${article.id}`} className="hover:no-underline">
+              <ArticleCard {...article} />
+            </a>
           ))}
         </div>
 
@@ -164,9 +166,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {trendingArticles.map((article, index) => (
-              <div
+              <a
                 key={article.id}
-                className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-shadow"
+                href={`/article/${article.id}`}
+                className="bg-white p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-shadow block"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-100 flex items-center justify-center">
@@ -186,7 +189,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -201,10 +204,11 @@ export default function Home() {
             </h2>
             <div className="space-y-6">
               {featuredArticles.slice(2).map((article) => (
-                <div
-                  key={article.id}
-                  className="flex gap-6 pb-6 border-b border-gray-100 hover:opacity-75 transition-opacity cursor-pointer"
-                >
+              <a
+                key={article.id}
+                href={`/article/${article.id}`}
+                className="flex gap-6 pb-6 border-b border-gray-100 hover:opacity-75 transition-opacity cursor-pointer block"
+              >
                   {article.image && (
                     <img
                       src={article.image}
@@ -230,7 +234,7 @@ export default function Home() {
                       <span>{article.readTime}</span>
                     </div>
                   </div>
-                </div>
+              </a>
               ))}
             </div>
           </div>
